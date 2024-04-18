@@ -2007,3 +2007,13 @@ jQuery(".pridddsa2").click(function(){
 });
     
 });
+
+========================================================================= hover add remove class 
+jQuery(".cusnewbtn").hover(
+  function () {
+   jQuery(this).addClass("result_hover");
+  },
+  function () {
+    jQuery(this).removeClass("result_hover");
+  }
+);
