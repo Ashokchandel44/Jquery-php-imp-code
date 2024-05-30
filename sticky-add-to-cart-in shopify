@@ -1,0 +1,47 @@
+<div class="sticky-add-to-cart">
+    <button type="submit" name="add" id="AddToCart1" class="btn">Add to Cart</button>
+</div>
+ <style>
+   .sticky-add-to-cart {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(100%);
+}
+
+.sticky-add-to-cart.show {
+    transform: translateY(0);
+}
+
+
+ </style>                     
+<script>
+  $(document).ready(function() {
+    var scrollPos = $(window).scrollTop();
+    var windowHeight = $(window).height();
+    var productHeight = $('#MainContent').height(); // Change 'ProductSection' to match your product section ID
+
+    $(window).scroll(function() {
+        var currentScroll = $(this).scrollTop();
+        if (currentScroll > scrollPos && currentScroll > windowHeight - productHeight) {
+            $('.sticky-add-to-cart').addClass('show');
+        } else {
+            $('.sticky-add-to-cart').removeClass('show');
+        }
+        scrollPos = currentScroll;
+    });
+
+ $('#AddToCart1').on('click', function() {
+        //e.preventDefault();         
+        $('.product-form__submit').trigger('click');
+    });
+    
+});
+
+</script>
